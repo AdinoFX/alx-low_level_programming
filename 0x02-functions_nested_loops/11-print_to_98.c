@@ -1,35 +1,36 @@
+#include <stdio.h>
 #include "main.h"
 /**
- * print_times_table - print n time table
- * @n: parameter
+ * print_to_98 - print n number to 98
+ *
+ * Description: print the number ascending or descending
+ *
+ * @n: the passed value
  */
 void print_to_98(int n)
 {
-	int num, mult, result;
+	if (n <= 98)
+	{
+		for (; n <= 98; n++)
+	{
+		printf("%d", n);
 
-	if (n <= 15 && n >= 0)
-		for (num = 0; num <= n; num++)
+		if (n == 98)
+			continue;
+		printf(", ");
+	}
+	printf("\n");
+	}
+	else
+	{
+		for (; n >= 98; n--)
 		{
-			_putchar('0');
-			for (mult = 1; mult <= n; mult++)
-			{
-				_putchar(',');
-				_putchar(' ');
-				result = num * mult;
-				if (result <= 99)
-					_putchar(' ');
-				if (result <= 9)
-					_putchar(' ');
-				if (result >= 100)
-				{
-					_putchar((result / 100) + '0');
-					_putchar(((result / 10) % 10) + '0');
-				}
-				else if (result <= 99 && result >= 10)
-				{
-					_putchar((result / 10) + '0');
-				}
-				_putchar('\n');
-			}
+			printf("%d", n);
+
+			if (n == 98)
+				continue;
+			printf(", ");
 		}
+		printf("\n");
+	}
 }
