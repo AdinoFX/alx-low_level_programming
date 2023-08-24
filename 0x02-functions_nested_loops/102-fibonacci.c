@@ -3,32 +3,29 @@
  * main - Entry point
  *
  * Return: (0)
- *
  */
-int main()
+int main(void)
 {
-		int n = 50;
-		int fibonacci[50];
-		fibonacci[0] = 1;
-		fibonacci[1] = 2;
+	int i;
+	long int fibonacci[50];
 
-		for (int i = 2; i < n; i++)
+	fibonacci[0] = 1;
+	fibonacci[1] = 2;
+	printf("%ld, %ld, ", fibonacci[0], fibonacci[1]);
+
+	for (i = 2; i < 50; i++)
+	{
+		fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+
+		if (i == 49)
 		{
-				fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+			printf("%ld\n", fibonacci[i]);
 		}
-
-		for (int i = 0; i < n; i++)
+		else
 		{
-				printf("%d", fibonacci[i]);
-				if (i != n - 1)
-				{
-						printf(", ");
-				}
-				if ((i + 1) % 10 == 0)
-				{
-						printf("\n");
-				}
+			printf("%ld, ", fibonacci[i]);
 		}
+	}
 
-		return 0;
+	return (0);
 }
